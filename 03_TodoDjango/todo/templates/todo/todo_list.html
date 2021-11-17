@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>TODO 목록 앱</title>
+  </head>
+  <body>
+    <h1>TODO 목록 앱</h1>
+    <h3><a href="">New Todo</a></h3>
+    <ul>
+      {% for todo in todos %}
+      <li>
+        <h2>
+          <a href="">{{ todo.title }}</a>
+        </h2>
+        <button>{{ todo.complete }}</button>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
