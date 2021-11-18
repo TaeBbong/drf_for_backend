@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>TODO 목록 앱</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+  <div class="container">
+    <h1>TODO 상세보기</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ todo.title }}</h5>
+              </h5>
+              <p class="card-text">{{ todo.description }}</p>
+              <a href="{% url 'todo_list' %}" class="btn btn-primary">목록으로</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </div>
+</html>

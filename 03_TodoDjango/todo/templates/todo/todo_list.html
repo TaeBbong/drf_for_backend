@@ -16,7 +16,7 @@
     <ul class="list-group">
       {% for todo in todos %}
       <li class="list-group-item">
-        <a href="">{{ todo.title }}</a>
+        <a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.title }}</a>
         {% if todo.important %}
           <span class="badge badge-danger">!</span>
         {% endif %}
