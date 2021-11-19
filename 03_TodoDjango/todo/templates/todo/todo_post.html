@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>TODO 목록 앱</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+  <div class="container">
+    <h1>TODO 추가하기</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <form method="POST">
+                {% csrf_token %}
+                  {% for field in form %}
+                    <div class="form-group row">
+                    <label class="col-12 col-form-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="col-4">
+                        <input
+                        type="{{ field.field.widget.input_type }}"
+                        class="form-control"
+                        name="{{ field.name }}"
+                        id="id_{{ field.name }}"
+                        value="{{ field.value|default:'' }}"
+                        >
+                    </div>
+                    <div class="col-4 help-text">{{ field.help_text }} </div>
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">등록</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </div>
+</html>
