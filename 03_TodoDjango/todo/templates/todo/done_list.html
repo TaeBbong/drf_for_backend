@@ -9,22 +9,17 @@
   </head>
   <body>
   <div class="container">
-    <h1>TODO 목록 앱</h1>
+    <h1>DONE 목록</h1>
     <p>
-      <a href="{% url 'todo_post' %}"><i class="bi-plus"></i>Add Todo</a>
-      <a href="{% url 'done_list' %}" class="btn btn-primary" style="float:right">완료한 TODO 목록</a>
+      <a href="{% url 'todo_list' %}" class="btn btn-primary">홈으로</a>
     </p>
     <ul class="list-group">
-      {% for todo in todos %}
+      {% for done in dones %}
       <li class="list-group-item">
-        <a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.title }}</a>
-        {% if todo.important %}
+        <a href="{% url 'todo_detail' pk=done.pk %}">{{ done.title }}</a>
+        {% if done.important %}
           <span class="badge badge-danger">!</span>
         {% endif %}
-        <div style="float:right">
-          <button class="btn btn-danger">완료</button>
-          <button class="btn btn-outline-primary">수정하기</button>
-        </div>
       </li>
       {% endfor %}
     </ul>
