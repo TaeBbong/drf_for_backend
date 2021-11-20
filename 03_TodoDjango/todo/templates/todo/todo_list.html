@@ -22,8 +22,8 @@
           <span class="badge badge-danger">!</span>
         {% endif %}
         <div style="float:right">
-          <button class="btn btn-danger">완료</button>
-          <button class="btn btn-outline-primary">수정하기</button>
+          <a href="{% url 'todo_done' pk=todo.pk %}" class="btn btn-danger">완료</a>
+          <a href="" class="btn btn-outline-primary">수정하기</a>
         </div>
       </li>
       {% endfor %}
