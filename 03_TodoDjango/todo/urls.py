@@ -7,4 +7,5 @@ urlpatterns = [
     path('todo', views.todo_post, name='todo_post'),
     path('done', views.done_list, name='done_list'),
     path('todo/<int:pk>/done', views.todo_done, name='todo_done'),
+    path('todo/<int:pk>/edit', views.todo_edit, name='todo_edit'),
 ]

@@ -23,7 +23,7 @@
         {% endif %}
         <div style="float:right">
           <a href="{% url 'todo_done' pk=todo.pk %}" class="btn btn-danger">완료</a>
-          <a href="" class="btn btn-outline-primary">수정하기</a>
+          <a href="{% url 'todo_edit' pk=todo.pk %}" class="btn btn-outline-primary">수정하기</a>
         </div>
       </li>
       {% endfor %}
