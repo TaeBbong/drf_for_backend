@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Photo App</title>
+  </head>
+  <body>
+    <h1><a href="">사진 목록 페이지</a></h1>
+    <h3><a href="{% url 'photo_post' %}">New Photo</a></h3>
+    <section>
+      {% for photo in photos %}
+      <div>
+        <h2>
+          <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a>
+        </h2>
+        <img src="{{ photo.image }}" alt="{{ photo.title }}" width="300" />
+        <p>{{ photo.author }}, {{ photo.price }}원</p>
+      </div>
+      {% endfor %}
+    </section>
+  </body>
+</html>
