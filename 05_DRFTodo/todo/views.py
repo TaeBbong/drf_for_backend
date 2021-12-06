@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework import viewsets
 
 from .models import Todo
-from .serializers import TodoSerializer, TodoCreateSerializer
+from .serializers import TodoSimpleSerializer, TodoDetailSerializer, TodoCreateSerializer
 
 
 class TodosAPIView(APIView):
