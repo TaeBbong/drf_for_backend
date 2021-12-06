@@ -12,7 +12,7 @@ from .serializers import TodoSerializer, TodoCreateSerializer
 class TodosAPIView(APIView):
     def get(self, request):
         todos = Todo.objects.filter(complete=False)
-        serializer = TodoSerializer(todos, many=True)
+        serializer = TodoSimpleSerializer(todos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -26,7 +26,7 @@ class TodosAPIView(APIView):
 class TodoAPIView(APIView):
     def get(self, request, pk):
         todo = get_object_or_404(Todo, id=pk)
-        serializer = TodoSerializer(todo)
+        serializer = TodoDetailSerializer(todo)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
@@ -41,7 +41,7 @@ class TodoAPIView(APIView):
 class DoneTodosAPIView(APIView):
     def get(self, request):
         dones = Todo.objects.filter(complete=True)
-        serializer = TodoSerializer(dones, many=True)
+        serializer = TodoSimpleSerializer(dones, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -50,16 +50,5 @@ class DoneTodoAPIView(APIView):
         done = get_object_or_404(Todo, id=pk)
         done.complete = True
         done.save()
-        serializer = TodoSerializer(done)
+        serializer = TodoDetailSerializer(done)
         return Response(status=status.HTTP_200_OK)
-
-
-# class TodoViewSet(viewsets.ModelViewSet):
-#     queryset = Todo.objects.all()
-
-#     # serializer_class = TodoSerializer
-
-#     def get_serializer_class(self):
-#         if self.action == 'create':
-#             return TodoCreateSerializer
-#         return TodoSerializer
