@@ -30,7 +30,7 @@ class TodoAPIView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
-        todo = get_object_or_404(id=pk)
+        todo = get_object_or_404(Todo, id=pk)
         serializer = TodoCreateSerializer(todo, data=request.data)
         if serializer.is_valid():
             serializer.save()
